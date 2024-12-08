@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Planner</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header Styling */
+        header {
+            background-image: url(pic2.jpg);
+            /* background-color: #5dbcd2; */
+            color: white;
+            text-align: center;
+            padding: 100px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        header h1 {
+            margin: 0;
+            color: ivory;
+            font-size: 2.5rem;
+        }
+        header p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+
+        /* Main Content Styling */
+        main {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        /* Planner Section */
+        .planner {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .planner-item {
+            flex: 1 1 calc(33.33% - 20px);
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        .planner-item:hover {
+            transform: translateY(-5px);
+        }
+        .planner-item h3 {
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            color: #715900;
+        }
+        .planner-item ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .planner-item ul li {
+            display: flex;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .planner-item ul li:last-child {
+            border-bottom: none;
+        }
+        .planner-item input[type="checkbox"] {
+            margin-right: 10px;
+            transform: scale(1.2);
+        }
+        .planner-item input[type="checkbox"]:checked + span {
+            text-decoration: line-through;
+            color: gray;
+        }
+
+        /* Task Adder Section */
+        .task-adder {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-top: 40px;
+        }
+        .task-adder h2 {
+            color: #715900;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+        .task-adder input {
+            width: 80%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            margin-right: 10px;
+        }
+        .task-adder button {
+            background-color: #000000;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .task-adder button:hover {
+            background-color: #48a3bc;
+        }
+
+        /* Motivational Quote Section */
+        .quote-section {
+            margin-top: 40px;
+            padding: 20px;
+            text-align: center;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .quote-section h3 {
+            font-size: 1.5rem;
+            color: #715900;
+            margin-bottom: 15px;
+        }
+        .quote-section p {
+            font-style: italic;
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: #000000;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            font-size: 1rem;
+        }
+        footer a {
+            color: #ffecb3;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .planner-item {
+                flex: 1 1 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Daily Planner</h1>
+        <p>Your simple and modern tool to organize your day!</p>
+    </header>
+    <main>
+        <!-- Daily Planner Section -->
+        <section class="planner">
+            <div class="planner-item">
+                <h3>Morning task </h3>
+                <ul>
+                    <li><input type="checkbox" /><span>Morning adhkar</span></li>
+                    <li><input type="checkbox" /><span>Namaz-e-fajar</span></li>
+                    <li><input type="checkbox" /><span>Surah Yaseen</span></li>
+                </ul>
+            </div>
+            <div class="planner-item">
+                <h3>Afternoon Goals</h3>
+                <ul>
+                    <li><input type="checkbox" /><span>Namaz-e-zohr</span></li>
+                    <li><input type="checkbox" /><span>Lunch with sunnah Etiquettes</span></li>
+                    <li><input type="checkbox" /><span>Qailulah</span></li>
+                </ul>
+            </div>
+            <div class="planner-item">
+                <h3>Evening Routine</h3>
+                <ul>
+                    <li><input type="checkbox" /><span>Wrap up work</span></li>
+                    <li><input type="checkbox" /><span>Namaz-e-asar+maghrib+isha</span></li>
+                    <li><input type="checkbox" /><span>Evening adhkar</span></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Task Adder Section -->
+        <section class="task-adder">
+            <h2>Add a Task</h2>
+            <input type="text" placeholder="Enter your task here..." />
+            <button>Add Task</button>
+        </section>
+
+        <!-- Motivational Quote Section -->
+        <section class="quote-section">
+            <h3>Motivational Quote of the Day</h3>
+            <p>""Salah is a light, and charity is a proof, and patience is an illumination, and the Quran is an argument for or against you."
+                (Sahih Muslim, Hadith 223)
+                
+                Lesson: Salah serves as a guiding light in the life of a believer, bringing clarity, peace, and purpose.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>Design by Rabia and Habiba . Contact us at <a href="mailto:info@dailyplanner.com">rabiazafar57@gmail.com</a></p>
+    </footer>
+</body>
+</html>
